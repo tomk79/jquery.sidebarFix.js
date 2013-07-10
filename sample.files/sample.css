@@ -1,0 +1,387 @@
+@charset "UTF-8";
+
+/**
+ * リセット処理
+ */
+body{
+	text-align:left;
+	color:#58370a;
+	font-size-adjust:none;
+	-webkit-text-size-adjust:100%;/* Mobile Safari : 文字サイズの自動調整をオフに */
+}
+body,input,textarea,select,option,button{
+	font-family:"メイリオ", sans-serif;
+	font-size:medium;
+	line-height:1.7;
+}
+table{
+	border-collapse:collapse;
+}
+td, th{
+	empty-cells:show;
+	vertical-align:top;
+}
+img{
+	border:0px;
+	vertical-align:bottom;
+	max-width:100%;
+}
+p{
+	display:block;
+	padding:0px;
+}
+div{
+	display:block;
+	padding:0px;
+	margin:0px;
+}
+pre{
+	font-family:monospace,sans-serif;
+}
+address{
+	font-style:normal;
+	text-decoration:none;
+}
+form{
+	display:inline;
+}
+span{
+	display:inline;
+	padding:0px;
+	margin:0px;
+}
+ul>li{
+	list-style-type: disc;
+}
+ol>li{
+	list-style-type: decimal;
+}
+a {
+	text-decoration: none;
+}
+a , a *{ cursor:pointer; }
+
+p ,
+address ,
+pre ,
+ul ,
+ol ,
+dl ,
+blockquote{
+	margin-top:1em;
+	margin-bottom:1.5em;
+}
+
+h1 ,
+h2 ,
+h3 ,
+h4 ,
+h5 ,
+h6 {
+	font-size:100%;
+	padding:0px;
+	margin-top:1em;
+	margin-bottom:0.5em;
+	color: #000;
+}
+h1{
+	margin-top:1.5em;
+	margin-bottom:0.1em;
+	font-size:160%;
+	font-weight: bold;
+	color:#000;
+	border-bottom: 3px solid #000;
+}
+h2{
+	margin-top:1.5em;
+	font-size:143%;
+}
+h3{
+	font-size:123%;
+}
+h4{
+	font-size:108%;
+}
+
+/**
+ * コンテンツ領域
+ * div.contents が、テーマとコンテンツの領域の境界線となる。
+ */
+div.contents{
+	display:block !important;
+	text-align:left;
+}
+
+
+/* ---------------------------------------------------------- */
+
+/* ----------------------- */
+
+body{
+	text-align:center;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+	background-color:#fff;
+	color:#58370a;
+}
+body .header{
+	background-color:#000000;
+	color:#fff;
+	padding:20px 0 10px 0;
+	border-bottom:4px solid #d3ceb1;
+}
+body .header .header-inner{
+	max-width:980px;
+	width:auto;
+	>width:980px;
+	margin:0 auto;
+}
+body .header .logo{
+	text-align: left;
+	float:left;
+	padding:0 10px 0 5px;
+	max-width:190px;
+	width:50%;
+}
+body .header .logo a{
+	font-style: italic;
+	font-size:200%;
+	color: #000;
+	text-decoration: none;
+	font-weight:bold;
+	background-color:transparent;
+}
+body .header .logo a:hover{
+	opacity:0.8;
+}
+body .header .logo img{
+	width:100%;
+}
+body .header .header-gnavi{
+	padding:20px 10px 5px 210px;
+	text-align:left;
+}
+body .header .header-gnavi ul{
+	display:inline;
+	padding:0;
+}
+body .header .header-gnavi ul li{
+	display:inline;
+	list-style-type:none;
+	list-style:none;
+	font-size:90%;
+	padding:2px 5px 2px 0;
+}
+body .header .header-gnavi ul li a{
+	color:#fff;
+	display:inline-block;
+	padding:4px;
+}
+body .header .header-gnavi ul li a:hover{
+	color:#66a82d;
+}
+body .header .header-gnavi ul li a.current{
+	color:#66a82d;
+}
+
+body .outline{
+	padding: 10px 30px;
+	background:#fff;
+	background-attachment: fixed;
+	color:#58370a;
+}
+
+body .outline .middle{
+	text-align:left;
+	max-width:980px;
+	width:auto;
+	>width:980px;
+	margin:0px auto;
+	clear:both;
+}
+body .outline .middle{
+	display:block;
+	float:none;
+	clear:both;
+}
+body .outline .middle:after{
+	content: " ";
+	display:block;
+	visibility:hidden;
+	height:0.1px;
+	font-size:0.1em;
+	line-height:0;
+	clear:both;
+}
+body .outline .middle{
+	/* clearfix(for IE6,7) (IE8以降不要) */
+	zoom:1;
+}
+body .outline .middle h1{
+	margin-top:30px;
+	font-size:200%;
+}
+body .outline .middle .column1{
+	width:70%;
+	float:left;
+}
+
+body .outline .middle .column2{
+	width:25%;
+	float:right;
+}
+
+body .footer{
+	clear:both;
+	padding-top: 10px;
+	background-color: #000000;
+	color: #ffffff;
+}
+body .footer .footer-inner{
+	max-width:980px;
+	width:auto;
+	>width:980px;
+	margin:0 auto;
+}
+body .footer .footer-copyright{
+	text-align:center;
+	color: #00a0e6;
+	font-size:80%;
+}
+body .footer .footer-gnavi{
+	padding:20px 10px 5px 20px;
+	text-align:center;
+}
+body .footer .footer-gnavi ul{
+	display:inline;
+	padding:0;
+}
+body .footer .footer-gnavi ul li{
+	display:inline;
+	list-style-type:none;
+	list-style:none;
+	font-size:90%;
+	padding:2px 5px 2px 0;
+}
+
+@media all and (max-width: 620px){
+	body .outline{
+		padding: 20px 7px;
+	}
+	body .outline .middle .column1{
+		width:auto;
+		float:none;
+	}
+
+	body .outline .middle .column2{
+		width:auto;
+		float:none;
+	}
+
+	body .header .header-gnavi{
+		padding:5px 5px 5px 55%;
+		text-align:left;
+	}
+	body .header .header-gnavi ul{
+		display:block;
+		padding:0;
+		margin:0;
+	}
+	body .header .header-gnavi ul li{
+		display:list-item;
+		list-style-type:none;
+		list-style:none;
+		padding:0;
+	}
+	body .footer .footer-gnavi{
+		padding:5px 5px 5px 5px;
+		text-align:left;
+	}
+	body .footer .footer-gnavi ul{
+		display:block;
+		padding:0;
+		margin:0;
+	}
+	body .footer .footer-gnavi ul li{
+		display:list-item;
+		list-style-type:none;
+		list-style:none;
+		padding:0;
+	}
+}
+
+/**
+ * パンくず
+ */
+.breadcrumb{
+}
+.breadcrumb ul,
+.breadcrumb ul li{
+	display: inline;
+	list-style-type: none;
+	margin:0px;
+	padding:0px;
+	font-size: 85%;
+}
+
+/**
+* .localnavi
+*/
+.localnavi {
+	margin-top:0.2em;
+	border:3px solid #d3c28c;
+}
+.localnavi a {
+	color: #00a0e6;
+	text-decoration: none;
+	display:block;
+	padding: 0.7em 0.5em 0.7em 1em;
+}
+.localnavi a.current {
+	color: #4d4632;
+	background-color:#d3c28c;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.localnavi ul ul a.current {
+	color: #66a82d;
+	background-color:#fff191;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+}
+
+.localnavi ul {
+	margin: 0;
+	padding: 0;
+}
+.localnavi ul li {
+	font-size: 90%;
+	padding:0;
+	margin:0 0 1px 0;
+	list-style-type: none;
+}
+.localnavi ul li {
+	font-size: 100%;
+	border-bottom: 2px solid #dccfad;
+}
+.localnavi ul li:last-child {
+	border-bottom:0px none;
+}
+.localnavi ul li ul{
+	border-bottom:0px none;
+}
+.localnavi ul li ul li ul{
+	border-top: 1px dashed #dccfad;
+}
+.localnavi ul li ul li ul li{
+	font-size: 90%;
+	border-bottom: 1px dashed #dccfad;
+}
+.localnavi ul li ul li a{
+	padding: 0.4em 0.5em 0.4em 2em;
+}
+.localnavi ul li ul li ul li a{
+	padding: 0.4em 0.5em 0.4em 4em;
+}
+.localnavi li.localnavi-current{
+}
