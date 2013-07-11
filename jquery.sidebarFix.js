@@ -1,6 +1,6 @@
 /**
  * jquery.sidebarFix.js
- * version 1.0.0
+ * version 1.0.1
  * @author Tomoya Koyanagi <tomk79@gmail.com>
  */
 (function($){
@@ -78,7 +78,7 @@
 
 		}else if( scrollDirection < 0 && lastScrollDirection > 0 && $(window).scrollTop() >= _this.offset().top && scrollUnder <= areaUnder ){
 			// 上向き(に、切り替わって一発目)
-			if( _this.css('position') == 'fixed' ){
+			if( _this.css('position') != 'relative' ){
 				// console.log('上向き(に、切り替わって一発目)');
 				var tmpTop = _this.offset().top - _this.sidebarFixData.frame.offset().top;
 				_this
@@ -93,7 +93,7 @@
 
 		}else if( scrollDirection > 0 && lastScrollDirection < 0 && $(window).scrollTop() >= _this.offset().top && scrollUnder <= areaUnder ){
 			// 下向き(に、切り替わって一発目)
-			if( _this.css('position') == 'fixed' ){
+			if( _this.css('position') != 'relative' ){
 				// console.log('下向き(に、切り替わって一発目)');
 				var tmpTop = _this.offset().top - _this.sidebarFixData.frame.offset().top;
 				_this
