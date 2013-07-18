@@ -1,6 +1,6 @@
 /**
  * jquery.sidebarFix.js
- * version 1.0.1
+ * version 1.0.2
  * @author Tomoya Koyanagi <tomk79@gmail.com>
  */
 (function($){
@@ -41,6 +41,10 @@
 	 */
 	function updateStatus(_this){
 		if( !_this.sidebarFixData.apply ){
+			_this
+				.css('overflow','visible')
+				.css('position','static')
+			;
 			return;
 		}
 
