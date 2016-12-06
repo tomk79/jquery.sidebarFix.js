@@ -1,6 +1,6 @@
 /**
  * jquery.sidebarFix.js
- * version 1.0.2
+ * version 1.1.0
  * @author Tomoya Koyanagi <tomk79@gmail.com>
  */
 (function($){
@@ -9,6 +9,8 @@
 	var lastScrollTop = 0;
 	var scrollDirection = 0;
 	var lastScrollDirection = 0;
+	var topBuffer = 0;
+	var $win = $(window);
 
 	/**
 	* sidebarFix();
@@ -32,6 +34,9 @@
 			// console.log('offsetTop が 等価ではない。');
 			this.sidebarFixData.apply = false;
 		}
+		if( opt.topBuffer ){
+			topBuffer = opt.topBuffer;
+		}
 
 		updateStatus(this);
 	}
@@ -49,15 +54,15 @@
 		}
 
 		var frameOffsetScrollTop = _this.sidebarFixData.frame.offset().top + _this.height();
-		var scrollUnder = $(window).height() + $(window).scrollTop();
-		var areaUnder = _this.offset().top + _this.height()
+		var scrollUnder = $win.height() + $win.scrollTop();
+		var areaUnder = _this.offset().top + _this.height();
 		var frameUnder = _this.sidebarFixData.frame.offset().top + _this.sidebarFixData.frame.height();
 
-
-		// if( $(window).scrollTop() >= _this.offset().top && scrollUnder <= areaUnder ){
+		// if( $win.scrollTop() >= _this.offset().top - topBuffer && scrollUnder <= areaUnder ){
 		// 	console.log('途中にいます。');
 		// }
-		if( $(window).scrollTop() < _this.sidebarFixData.frame.offset().top ){
+
+		if( $win.scrollTop() < _this.sidebarFixData.frame.offset().top - topBuffer ){
 			// スクロール位置が frame より上な場合
 			_this
 				.css('position','static')
@@ -66,7 +71,7 @@
 				.css('width', 'auto' )
 			;
 
-		}else if( frameUnder <= $(window).scrollTop()+_this.height() && frameUnder <= scrollUnder ){
+		}else if( frameUnder <= $win.scrollTop()+_this.height() + topBuffer && frameUnder <= scrollUnder ){
 			// 一番下までスクロールしちゃってる場合
 			_this
 				.css('position','static')
@@ -77,10 +82,10 @@
 				.css('position','relative')
 			;
 
-		}else if( $(window).scrollTop() >= _this.offset().top && scrollUnder <= areaUnder && _this.css('position') == 'relative' ){
+		}else if( $win.scrollTop() >= _this.offset().top - topBuffer && scrollUnder <= areaUnder && _this.css('position') == 'relative' ){
 			// console.log('画面に収まってなくてposition:relative;');
 
-		}else if( scrollDirection < 0 && lastScrollDirection > 0 && $(window).scrollTop() >= _this.offset().top && scrollUnder <= areaUnder ){
+		}else if( scrollDirection < 0 && lastScrollDirection > 0 && $win.scrollTop() >= _this.offset().top - topBuffer && scrollUnder <= areaUnder ){
 			// 上向き(に、切り替わって一発目)
 			if( _this.css('position') != 'relative' ){
 				// console.log('上向き(に、切り替わって一発目)');
@@ -95,7 +100,7 @@
 				;
 			}
 
-		}else if( scrollDirection > 0 && lastScrollDirection < 0 && $(window).scrollTop() >= _this.offset().top && scrollUnder <= areaUnder ){
+		}else if( scrollDirection > 0 && lastScrollDirection < 0 && $win.scrollTop() >= _this.offset().top - topBuffer && scrollUnder <= areaUnder ){
 			// 下向き(に、切り替わって一発目)
 			if( _this.css('position') != 'relative' ){
 				// console.log('下向き(に、切り替わって一発目)');
@@ -112,13 +117,12 @@
 
 		}else if( scrollDirection < 0 ){
 			// 上向き(継続的)
-
-			if( frameUnder - _this.height() - $(window).scrollTop() >= 0 && $(window).scrollTop() > _this.sidebarFixData.frame.offset().top ){
+			if( frameUnder - _this.height() - $win.scrollTop() - topBuffer >= 0 && $win.scrollTop() > _this.sidebarFixData.frame.offset().top + topBuffer ){
 				if( _this.css('position') != 'fixed' ){
 					_this
 						.css('position','static')
-						.css('left', _this.offset().left )
-						.css('top', 0 )
+						.css('left', _this.offset().left - $win.scrollLeft() )
+						.css('top', topBuffer )
 						.css('width', 'auto' )
 						.css('width', _this.width() )
 						.css('position','fixed')
@@ -129,11 +133,11 @@
 
 		}else if( scrollDirection > 0 ){
 			// 下向き(継続的)
-			if( _this.height() <= $(window).height() ){
+			if( _this.height() <= $win.height() - topBuffer ){
 				_this
 					.css('position','static')
-					.css('left', _this.offset().left )
-					.css('top', 0 )
+					.css('left', _this.offset().left - $win.scrollLeft() )
+					.css('top', topBuffer )
 					.css('width', 'auto' )
 					.css('width', _this.width() )
 					.css('position','fixed')
@@ -142,14 +146,13 @@
 			}else if( frameOffsetScrollTop <= scrollUnder ){
 				_this
 					.css('position','static')
-					.css('left', _this.offset().left )
-					.css('top', $(window).height() - _this.height() )
+					.css('left', _this.offset().left - $win.scrollLeft() )
+					.css('top', $win.height() - _this.height() )
 					.css('width', 'auto' )
 					.css('width', _this.width() )
 					.css('position','fixed')
 				;
 			}
-
 
 		}
 
@@ -170,7 +173,7 @@
 	/**
 	 * On window resized.
 	 */
-	$(window).resize(function(e){
+	$win.resize(function(e){
 		updateLayout();
 		return true;
 	});
@@ -178,14 +181,18 @@
 	/**
 	 * On window scrolled.
 	 */
-	$(window).scroll(function(e){
-		scrollDirection = $(window).scrollTop()-lastScrollTop;
+	var scrollEventHandler = function(e){
+		scrollDirection = $win.scrollTop()-lastScrollTop;
 		for( var row in _sidebars ){
 			updateStatus(_sidebars[row]);
 		}
-		lastScrollTop = $(window).scrollTop();
+		lastScrollTop = $win.scrollTop();
 		lastScrollDirection = scrollDirection;
 		return true;
-	});
+	}
+	$win.bind('scroll', scrollEventHandler);
+	// $win.bind('touchmove', scrollEventHandler);
+	// $win.bind('touchend', scrollEventHandler);
+	$win.bind('gestureend', scrollEventHandler);
 
 })(jQuery);

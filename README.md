@@ -51,14 +51,33 @@
 			$(window).load(function(){
 				// .jq_sidebar_fix を固定します
 				$('.jq_sidebar_fix').sidebarFix({
-					frame: $('.middle') // .middle の上下を基準にフィットさせます
-
+					frame: $('.middle'), // .middle の上下を基準にフィットさせます
+					topBuffer: 100 // スクロールに対して常に上に隙間をとる場合に指定。(固定ヘッダーがある場合など)
 				});
 			});
 		</script>
 	</body>
 </html>
 ```
+
+## 変更履歴 - Change log
+
+### jquery.sidebarFix.js@1.1.0 (2016-12-06)
+
+- オプション `topBuffer` を追加。
+
+### jquery.sidebarFix.js@1.0.2 (2013-07-18)
+
+- サイドバーを固定しないパターンの時に、overflow を visible に戻すようにした。
+
+### jquery.sidebarFix.js@1.0.1 (2013-07-11)
+
+- サイドバーが static の状態(=もとの位置にある状態)のときに、途中までスクロールダウンしてから少し上に戻ると、位置がずれる不具合を修正。
+
+
+### jquery.sidebarFix.js@1.0.0 (2013-07-11)
+
+- initial release.
 
 ## ライセンス - License
 
