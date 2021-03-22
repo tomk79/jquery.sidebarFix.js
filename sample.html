@@ -5,12 +5,13 @@
 		<meta charset="UTF-8" />
 		<title>jquery.sidebarFix.js SAMPLE</title>
 		<link rel="stylesheet" href="sample_files/sample.css" type="text/css" />
-		<script src="sample_files/jquery-1.10.1.min.js" type="text/javascript"></script>
+		<script src="sample_files/jquery-3.6.0.min.js" type="text/javascript"></script>
 		<script src="jquery.sidebarFix.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			$(window).load(function(){
+			$(window).on('load', function(){
 				$('.jq_sidebar_fix').sidebarFix({
-					frame: $('.middle')
+					frame: $('.middle'),
+					topBuffer: 16
 				});
 			});
 		</script>

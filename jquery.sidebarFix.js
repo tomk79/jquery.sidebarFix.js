@@ -1,6 +1,6 @@
 /**
  * jquery.sidebarFix.js
- * version 1.1.0
+ * version 1.1.1
  * @author Tomoya Koyanagi <tomk79@gmail.com>
  */
 (function($){
@@ -54,13 +54,9 @@
 		}
 
 		var frameOffsetScrollTop = _this.sidebarFixData.frame.offset().top + _this.height();
-		var scrollUnder = $win.height() + $win.scrollTop();
-		var areaUnder = _this.offset().top + _this.height();
+		var scrollUnder = Math.floor($win.height() + $win.scrollTop()) - 1;
+		var areaUnder = Math.floor(_this.offset().top + _this.height());
 		var frameUnder = _this.sidebarFixData.frame.offset().top + _this.sidebarFixData.frame.height();
-
-		// if( $win.scrollTop() >= _this.offset().top - topBuffer && scrollUnder <= areaUnder ){
-		// 	console.log('途中にいます。');
-		// }
 
 		if( $win.scrollTop() < _this.sidebarFixData.frame.offset().top - topBuffer ){
 			// スクロール位置が frame より上な場合
@@ -190,9 +186,9 @@
 		lastScrollDirection = scrollDirection;
 		return true;
 	}
-	$win.bind('scroll', scrollEventHandler);
-	// $win.bind('touchmove', scrollEventHandler);
-	// $win.bind('touchend', scrollEventHandler);
-	$win.bind('gestureend', scrollEventHandler);
+	$win.on('scroll', scrollEventHandler);
+	// $win.on('touchmove', scrollEventHandler);
+	// $win.on('touchend', scrollEventHandler);
+	$win.on('gestureend', scrollEventHandler);
 
 })(jQuery);

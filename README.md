@@ -42,13 +42,13 @@
 		</div><!-- /.footer -->
 
 		<!-- jQuery required -->
-		<script src="sample_files/jquery-1.10.1.min.js" type="text/javascript"></script>
+		<script src="sample_files/jquery-3.6.0.min.js" type="text/javascript"></script>
 
 		<!-- loading sidebarFix.js -->
 		<script src="jquery.sidebarFix.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
-			$(window).load(function(){
+			$(window).on('load', function(){
 				// .jq_sidebar_fix を固定します
 				$('.jq_sidebar_fix').sidebarFix({
 					frame: $('.middle'), // .middle の上下を基準にフィットさせます
@@ -61,6 +61,10 @@
 ```
 
 ## 変更履歴 - Change log
+
+### jquery.sidebarFix.js@1.1.1 (リリース日未定)
+
+- Firefox で、サイドバーが追従しない場合がある不具合を修正。
 
 ### jquery.sidebarFix.js@1.1.0 (2016-12-06)
 
@@ -86,5 +90,5 @@ MIT License
 ## 作者 - Author
 
 - Tomoya Koyanagi <tomk79@gmail.com>
-- website: <http://www.pxt.jp/>
-- Twitter: @tomk79 <http://twitter.com/tomk79/>
+- website: <https://www.pxt.jp/>
+- Twitter: @tomk79 <https://twitter.com/tomk79/>
