@@ -38,6 +38,44 @@
 			topBuffer = opt.topBuffer;
 		}
 
+
+		if( opt.force ){
+			// 先祖要素をスキャンし、
+			// ルート要素ではない position:fixed の包含ブロックが存在する場合に、
+			// 強制的に排除し、固定させる。
+			var $parent = this.parent();
+			var tmpTagName;
+			while(1){
+				tmpTagName = $parent.get(0).tagName.toLowerCase();
+
+				if( $parent.css('transform') != 'none' ){
+					$parent.css('transform', 'none');
+				}
+				if( $parent.css('perspective') != 'none' ){
+					$parent.css('perspective', 'none');
+				}
+				if(
+					$parent.css('will-change') == 'transform'
+					|| $parent.css('will-change') == 'perspective'
+					|| $parent.css('will-change') == 'filter'
+				){
+					$parent.css('will-change', 'auto');
+				}
+				if( $parent.css('filter') != 'none' ){
+					$parent.css('filter', 'none');
+				}
+				if( $parent.css('contain') == 'paint' ){
+					$parent.css('contain', 'none');
+				}
+
+				if( tmpTagName == 'html' ){
+					break;
+				}
+				$parent = $parent.parent();
+			} // / opt.force
+
+		}
+
 		updateStatus(this);
 	}
 
