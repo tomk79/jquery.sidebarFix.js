@@ -74,7 +74,7 @@
 				.css('left', 0 )
 				.css('top', _this.sidebarFixData.frame.height() - _this.height() )
 				.css('width', 'auto' )
-				.css('width', _this.width() )
+				.css('width', _this.outerWidth() )
 				.css('position','relative')
 			;
 
@@ -91,7 +91,7 @@
 					.css('left', 0 )
 					.css('top', tmpTop )
 					.css('width', 'auto' )
-					.css('width', _this.width() )
+					.css('width', _this.outerWidth() )
 					.css('position','relative')
 				;
 			}
@@ -106,7 +106,7 @@
 					.css('left', 0 )
 					.css('top', tmpTop )
 					.css('width', 'auto' )
-					.css('width', _this.width() )
+					.css('width', _this.outerWidth() )
 					.css('position','relative')
 				;
 			}
@@ -120,7 +120,7 @@
 						.css('left', _this.offset().left - $win.scrollLeft() )
 						.css('top', topBuffer )
 						.css('width', 'auto' )
-						.css('width', _this.width() )
+						.css('width', _this.outerWidth() )
 						.css('position','fixed')
 					;
 				}
@@ -135,7 +135,7 @@
 					.css('left', _this.offset().left - $win.scrollLeft() )
 					.css('top', topBuffer )
 					.css('width', 'auto' )
-					.css('width', _this.width() )
+					.css('width', _this.outerWidth() )
 					.css('position','fixed')
 				;
 
@@ -145,7 +145,7 @@
 					.css('left', _this.offset().left - $win.scrollLeft() )
 					.css('top', $win.height() - _this.height() )
 					.css('width', 'auto' )
-					.css('width', _this.width() )
+					.css('width', _this.outerWidth() )
 					.css('position','fixed')
 				;
 			}
