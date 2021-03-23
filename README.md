@@ -1,7 +1,10 @@
-# jquery.sidebarFix.js
+# sidebarFix.js
 
-このjQueryプラグインは、サイドバーをブラウザの表示エリア内に固定するプラグインです。
-サイドバーが画面の高さよりも長い場合でも、下の方のボタンが見きれないように自動的に位置を調整します。
+サイドバーをブラウザの表示エリア内に固定するライブラリです。
+サイドバーが画面の高さよりも長い場合でも、サイドバーの全体が見きれないように自動的に位置を調整します。
+
+jQueryプラグイン版 `jquery.sidebarFix.js` と、jQueryを内蔵したスタンドアローン版 `sidebarFix.js` を同梱しています。
+
 
 ## 使い方 - Usage
 
@@ -27,13 +30,13 @@
 					</div><!-- /#content -->
 				</div><!-- /.column1 -->
 				<div class="column2">
-					<div class="jq_sidebar_fix">
+					<div class="jq-sidebar-fix">
 
 						<div class="localnavi">
 							サイドバー
 						</div><!-- /.localnavi -->
 
-					</div><!-- /.jq_sidebar_fix -->
+					</div><!-- /.jq-sidebar-fix -->
 				</div><!-- /.column2 -->
 			</div><!-- /.middle -->
 		</div><!-- /.outline -->
@@ -49,8 +52,8 @@
 
 		<script type="text/javascript">
 			$(window).on('load', function(){
-				// .jq_sidebar_fix を固定します
-				$('.jq_sidebar_fix').sidebarFix({
+				// .jq-sidebar-fix を固定します
+				$('.jq-sidebar-fix').sidebarFix({
 					frame: $('.middle'), // .middle の上下を基準にフィットさせます
 					topBuffer: 100, // スクロールに対して常に上に隙間をとる場合に指定。(固定ヘッダーがある場合など)
 					force: true // 強制的に固定します。固定座標がズレる場合に指定すると、矯正的に補正します。
@@ -69,6 +72,11 @@
 
 
 ## 変更履歴 - Change log
+
+### jquery.sidebarFix.js v1.2.0 (リリース日未定)
+
+- スタンドアローン版(jQuery内蔵)を追加。
+- npm でインストールできるようになった。
 
 ### jquery.sidebarFix.js v1.1.1 (2021-03-22)
 

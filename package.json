@@ -1,6 +1,6 @@
 {
     "name": "@tomk79/sidebar-fix",
-    "version": "1.1.0-alpha.1+dev",
+    "version": "1.2.0-alpha.1+dev",
     "description": "",
     "private": true,
     "main": "src/inc/sidebarFix.js",
