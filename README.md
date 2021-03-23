@@ -70,7 +70,7 @@
 
 ## 変更履歴 - Change log
 
-### jquery.sidebarFix.js v1.1.1 (リリース日未定)
+### jquery.sidebarFix.js v1.1.1 (2021-03-22)
 
 - サイドバーの幅が狭くされることがある問題を修正。
 - オプション `force` を追加。
