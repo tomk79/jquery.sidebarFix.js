@@ -1,0 +1,26 @@
+{
+    "name": "@tomk79/sidebar-fix",
+    "version": "1.1.0-alpha.1+dev",
+    "description": "",
+    "private": true,
+    "main": "src/inc/sidebarFix.js",
+    "scripts": {},
+    "author": "Tomoya Koyanagi",
+    "license": "MIT",
+    "dependencies": {
+        "jquery": "^3.6.0"
+    },
+    "devDependencies": {
+        "file-loader": "^4.2.0",
+        "gulp": "^4.0.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-plumber": "^1.1.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^4.0.2",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "url-loader": "^2.1.0",
+        "webpack": "^4.39.2",
+        "webpack-stream": "^5.2.1"
+    }
+}

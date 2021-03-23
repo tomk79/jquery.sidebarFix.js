@@ -1,9 +1,8 @@
 /**
- * jquery.sidebarFix.js
- * version 1.1.1
+ * sidebarFix.js
  * @author Tomoya Koyanagi <tomk79@gmail.com>
  */
-(function($){
+module.exports = function($){
 
 	var _sidebars = [];
 	var lastScrollTop = 0;
@@ -13,8 +12,8 @@
 	var $win = $(window);
 
 	/**
-	* sidebarFix();
-	*/
+	 * sidebarFix();
+	 */
 	$.fn.sidebarFix = function( opt ){
 		_sidebars.push(this);
 		this.sidebarFixData = opt;
@@ -207,7 +206,7 @@
 	/**
 	 * On window resized.
 	 */
-	$win.resize(function(e){
+	$win.on('resize', function(e){
 		updateLayout();
 		return true;
 	});
@@ -229,4 +228,4 @@
 	// $win.on('touchend', scrollEventHandler);
 	$win.on('gestureend', scrollEventHandler);
 
-})(jQuery);
+};
