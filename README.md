@@ -60,27 +60,32 @@
 </html>
 ```
 
+## 既知の問題 - Known problem
+
+- サイドバーを固定するために、 `position: fixed` が設定されます。サイドバーが `position: fixed` のときの包含ブロックにネストされている場合、固定位置がズレることがあります。 包含ブロックについては [こちら](https://developer.mozilla.org/ja/docs/Web/CSS/Containing_block) を参照してください。
+
+
 ## 変更履歴 - Change log
 
-### jquery.sidebarFix.js@1.1.1 (リリース日未定)
+### jquery.sidebarFix.js v1.1.1 (リリース日未定)
 
 - サイドバーの幅が狭くされることがある問題を修正。
 - Firefox で、サイドバーが追従しない場合がある不具合を修正。
 
-### jquery.sidebarFix.js@1.1.0 (2016-12-06)
+### jquery.sidebarFix.js v1.1.0 (2016-12-06)
 
 - オプション `topBuffer` を追加。
 
-### jquery.sidebarFix.js@1.0.2 (2013-07-18)
+### jquery.sidebarFix.js v1.0.2 (2013-07-18)
 
 - サイドバーを固定しないパターンの時に、overflow を visible に戻すようにした。
 
-### jquery.sidebarFix.js@1.0.1 (2013-07-11)
+### jquery.sidebarFix.js v1.0.1 (2013-07-11)
 
 - サイドバーが static の状態(=もとの位置にある状態)のときに、途中までスクロールダウンしてから少し上に戻ると、位置がずれる不具合を修正。
 
 
-### jquery.sidebarFix.js@1.0.0 (2013-07-11)
+### jquery.sidebarFix.js v1.0.0 (2013-07-11)
 
 - initial release.
 
