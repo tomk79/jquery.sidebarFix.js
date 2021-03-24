@@ -1,8 +1,8 @@
 {
     "name": "@tomk79/sidebar-fix",
-    "version": "1.2.0-alpha.1+dev",
-    "description": "",
-    "private": true,
+    "version": "1.2.0",
+    "description": "サイドバーをブラウザの表示エリア内に固定するライブラリです。ブラウザで動作します。",
+    "private": false,
     "main": "src/inc/sidebarFix.js",
     "scripts": {},
     "author": "Tomoya Koyanagi",

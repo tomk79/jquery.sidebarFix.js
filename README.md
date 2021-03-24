@@ -1,6 +1,6 @@
 # sidebarFix.js
 
-サイドバーをブラウザの表示エリア内に固定するライブラリです。
+サイドバーをブラウザの表示エリア内に固定するライブラリです。ブラウザで動作します。
 サイドバーが画面の高さよりも長い場合でも、サイドバーの全体が見きれないように自動的に位置を調整します。
 
 jQueryプラグイン版 `jquery.sidebarFix.js` と、jQueryを内蔵したスタンドアローン版 `sidebarFix.js` を同梱しています。
@@ -123,7 +123,7 @@ sidebarFix('.sidebar-fix', {
 
 ## 変更履歴 - Change log
 
-### jquery.sidebarFix.js v1.2.0 (リリース日未定)
+### sidebarFix.js v1.2.0 (2021-03-24)
 
 - スタンドアローン版(jQuery内蔵)を追加。
 - npm でインストールできるようになった。
