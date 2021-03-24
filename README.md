@@ -8,8 +8,9 @@ jQueryプラグイン版 `jquery.sidebarFix.js` と、jQueryを内蔵したス�
 
 ## 使い方 - Usage
 
-```html
+### jQuery プラグインとして使う - Using as a jQuery Plugin
 
+```html
 <!doctype html>
 <html>
 	<head>
@@ -18,43 +19,32 @@ jQueryプラグイン版 `jquery.sidebarFix.js` と、jQueryを内蔵したス�
 	<body>
 		<div class="header">
 			header
-		</div><!-- /.header -->
-		<div class="outline">
-			<div class="middle">
-				<div class="column1">
-					<h1>jquery.sidebarFix.js SAMPLE</h1>
-					<div id="content" class="contents">
-
-						コンテンツエリア
-
-					</div><!-- /#content -->
-				</div><!-- /.column1 -->
-				<div class="column2">
-					<div class="jq-sidebar-fix">
-
-						<div class="localnavi">
-							サイドバー
-						</div><!-- /.localnavi -->
-
-					</div><!-- /.jq-sidebar-fix -->
-				</div><!-- /.column2 -->
-			</div><!-- /.middle -->
-		</div><!-- /.outline -->
+		</div>
+		<div class="sidebar-fix-container">
+			<div class="column1">
+				Contents Area
+			</div>
+			<div class="column2">
+				<div class="sidebar-fix">
+					Sidebar
+				</div>
+			</div>
+		</div>
 		<div class="footer">
 			footer
-		</div><!-- /.footer -->
+		</div>
 
 		<!-- jQuery required -->
 		<script src="sample_files/jquery-3.6.0.min.js" type="text/javascript"></script>
 
-		<!-- loading sidebarFix.js -->
+		<!-- loading jquery.sidebarFix.js -->
 		<script src="jquery.sidebarFix.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
 			$(window).on('load', function(){
-				// .jq-sidebar-fix を固定します
-				$('.jq-sidebar-fix').sidebarFix({
-					frame: $('.middle'), // .middle の上下を基準にフィットさせます
+				// .sidebar-fix を固定します
+				$('.sidebar-fix').sidebarFix({
+					frame: $('.sidebar-fix-container'), // .sidebar-fix-container の上下を基準にフィットさせます
 					topBuffer: 100, // スクロールに対して常に上に隙間をとる場合に指定。(固定ヘッダーがある場合など)
 					force: true // 強制的に固定します。固定座標がズレる場合に指定すると、矯正的に補正します。
 				});
@@ -63,6 +53,66 @@ jQueryプラグイン版 `jquery.sidebarFix.js` と、jQueryを内蔵したス�
 	</body>
 </html>
 ```
+
+
+### スタンドアローンで使う - Using without jQuery
+
+```html
+<!doctype html>
+<html>
+	<head>
+		<title>sidebarFix.js SAMPLE</title>
+	</head>
+	<body>
+		<div class="header">
+			header
+		</div>
+		<div class="sidebar-fix-container">
+			<div class="column1">
+				Contents Area
+			</div>
+			<div class="column2">
+				<div class="sidebar-fix">
+					Sidebar
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			footer
+		</div>
+
+		<!-- loading sidebarFix.js -->
+		<script src="sidebarFix.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			window.addEventListener('load', function(){
+				// .sidebar-fix を固定します
+				sidebarFix('.sidebar-fix', {
+					frame: $('.sidebar-fix-container'),
+					topBuffer: 100,
+					force: true
+				});
+			});
+		</script>
+	</body>
+</html>
+```
+
+
+### npm パッケージで使う - Using as a npm package
+
+```js
+const sidebarFix = require('@tomk79/sidebar-fix');
+
+// .sidebar-fix を固定します
+sidebarFix('.sidebar-fix', {
+	frame: $('.sidebar-fix-container'),
+	topBuffer: 100,
+	force: true
+});
+```
+
+
 
 ## 既知の問題 - Known problem
 
